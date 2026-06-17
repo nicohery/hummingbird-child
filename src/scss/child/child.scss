@@ -1,0 +1,43 @@
+// Hummingbird Child — child styles. Compiled LAST into assets/css/theme.css:
+// no custom.css, no extra HTTP request.
+//
+// Example runtime override: Hummingbird hard-sets $primary (no !default),
+// so the brand color swap happens here through the CSS custom properties
+// Bootstrap 5.3 exposes — outside any @layer, these win over parent rules.
+
+:root {
+  --child-primary: #{$child-primary};
+
+  --bs-primary: #{$child-primary};
+  --bs-primary-rgb: #{red($child-primary)}, #{green($child-primary)}, #{blue($child-primary)};
+  --bs-link-color: #{$child-primary};
+  --bs-link-color-rgb: #{red($child-primary)}, #{green($child-primary)}, #{blue($child-primary)};
+  --bs-link-hover-color: #{darken($child-primary, 10%)};
+  --bs-link-hover-color-rgb: #{red(darken($child-primary, 10%))}, #{green(darken($child-primary, 10%))}, #{blue(darken($child-primary, 10%))};
+}
+
+// Demo badge for the block-level template override
+// (templates/catalog/product.tpl).
+.child-badge {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.815rem;
+  color: var(--child-primary);
+  background: rgba(var(--bs-primary-rgb), 0.08);
+  border: 1px solid currentcolor;
+  border-radius: 50rem;
+}
+
+// Bootstrap compiles .btn-primary colors to literals, so remap its
+// component-level custom properties too.
+.btn-primary {
+  --bs-btn-bg: #{$child-primary};
+  --bs-btn-border-color: #{$child-primary};
+  --bs-btn-hover-bg: #{darken($child-primary, 8%)};
+  --bs-btn-hover-border-color: #{darken($child-primary, 8%)};
+  --bs-btn-active-bg: #{darken($child-primary, 12%)};
+  --bs-btn-active-border-color: #{darken($child-primary, 12%)};
+  --bs-btn-disabled-bg: #{$child-primary};
+  --bs-btn-disabled-border-color: #{$child-primary};
+}

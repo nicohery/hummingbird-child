@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "lib": ["es2020", "dom", "dom.iterable"],
+    "baseUrl": ".",
+    "paths": {
+      "@parent-scss/*": ["../hummingbird/src/scss/*"],
+      "@js/*": ["../hummingbird/src/js/*"],
+      "@services/*": ["../hummingbird/src/js/services/*"],
+      "@constants/*": ["../hummingbird/src/js/constants/*"],
+      "@helpers/*": ["../hummingbird/src/js/helpers/*"]
+    }
+  },
+  "include": [
+    "src/**/*",
+    "../hummingbird/types/**/*"
+  ]
+}

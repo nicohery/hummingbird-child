@@ -1,0 +1,217 @@
+name: hummingbird-child
+display_name: "Hummingbird Child"
+parent: hummingbird
+version: 1.0.0
+author:
+  name: "Nico Hery"
+  email: "nico.hery@gmail.com"
+
+assets:
+  # The child builds its OWN theme.css / theme.js bundles (wrapper pattern).
+  # No custom.css / custom.js: child.scss and child.ts are compiled into
+  # the main bundles instead of being loaded as extra HTTP requests.
+  use_parent_assets: false
+  css:
+    all:
+      - assets/css/theme.css
+  js:
+    all:
+      - assets/js/theme.js
+
+global_settings:
+  configuration:
+    PS_IMAGE_QUALITY: png
+    HOME_FEATURED_NBR: 4
+    NEW_PRODUCTS_NBR: 4
+    BLOCKSPECIALS_SPECIALS_NBR: 4
+    PS_BLOCK_BESTSELLERS_TO_DISPLAY: 4
+    PRODUCTS_VIEWED_NBR: 4
+    CATEGORYPRODUCTS_DISPLAY_PRODUCTS: 4
+    PSR_ICON_COLOR: "#0b69f6"
+    PSR_TEXT_COLOR: "#212529"
+  modules:
+    # Lightness: every module disabled here has its JS init also dropped
+    # from src/js/theme.ts (see the "child: dropped inits" comment there).
+    to_disable:
+      - blockwishlist
+      - ps_brandlist
+      - ps_supplierlist
+      - productcomments
+      - psgdpr
+      - ps_languageselector
+      - ps_currencyselector
+  hooks:
+    modules_to_unhook:
+      displayFooter:
+        - ps_socialfollow
+      displaySearch:
+        - ps_searchbar
+    modules_to_hook:
+      displayAfterBodyOpeningTag:
+        - blockreassurance
+        # Keep existing hooks and append them after
+        - ~
+      displayNav1:
+        - ps_contactinfo
+        # Keep existing hooks and append them after
+        - ~
+      displayNav2:
+        - ps_customersignin
+        - ps_shoppingcart
+        # Keep existing hooks and append them after
+        - ~
+      displayNavFullWidth:
+        - blockreassurance
+        # Keep existing hooks and append them after
+        - ~
+      displayTop:
+        - ps_mainmenu
+        - ps_searchbar
+        # Keep existing hooks and append them after
+        - ~
+      displayHome:
+        - ps_imageslider
+        - ps_customtext
+        - ps_featuredproducts
+        - ps_banner
+        - ps_newproducts
+        - ps_bestsellers
+        # Keep existing hooks and append them after
+        - ~
+      displayFooterBefore:
+        - ps_socialfollow
+        - ps_emailsubscription
+        - blockreassurance
+        # Keep existing hooks and append them after
+        - ~
+      displayFooter:
+        - ps_linklist
+        - ps_customeraccountlinks
+        - ps_contactinfo
+        # Keep existing hooks and append them after
+        - ~
+      displayFooterAfter:
+        - blockreassurance
+        # Keep existing hooks and append them after
+        - ~
+      displayLeftColumn:
+        - ps_categorytree
+        - ps_facetedsearch
+        # Keep existing hooks and append them after
+        - ~
+      displayContactLeftColumn:
+        - ps_contactinfo
+        # Keep existing hooks and append them after
+        - ~
+      displayContactRightColumn:
+        - ps_contactinfo
+        # Keep existing hooks and append them after
+        - ~
+      displayContactContent:
+        - contactform
+        # Keep existing hooks and append them after
+        - ~
+      displayProductAdditionalInfo:
+        - ps_sharebuttons
+        - ps_emailalerts
+        # Keep existing hooks and append them after
+        - ~
+      displayFooterProduct:
+        - ps_categoryproducts
+        - ps_viewedproduct
+        # Keep existing hooks and append them after
+        - ~
+      displayCrossSellingShoppingCart:
+        - ps_featuredproducts
+        # Keep existing hooks and append them after
+        - ~
+      displayOrderConfirmation2:
+        - ps_featuredproducts
+        # Keep existing hooks and append them after
+        - ~
+      displayReassurance:
+        - blockreassurance
+        # Keep existing hooks and append them after
+        - ~
+      displayCustomerAccount:
+        - ps_emailalerts
+        # Keep existing hooks and append them after
+        - ~
+
+  image_types:
+    cart_default:
+      width: 125
+      height: 125
+      scope: [products]
+    small_default:
+      width: 98
+      height: 98
+      scope: [products, categories, manufacturers, suppliers]
+    medium_default:
+      width: 452
+      height: 452
+      scope: [products, manufacturers, suppliers]
+    large_default:
+      width: 800
+      height: 800
+      scope: [products, manufacturers, suppliers]
+    home_default:
+      width: 250
+      height: 250
+      scope: [products]
+    category_default:
+      width: 180
+      height: 180
+      scope: [categories]
+    stores_default:
+      width: 287
+      height: 160
+      scope: [stores]
+    default_xs:
+      width: 160
+      height: 160
+      scope: [products, manufacturers, suppliers, categories]
+    default_sm:
+      width: 216
+      height: 216
+      scope: [categories, products]
+    default_md:
+      width: 261
+      height: 261
+      scope: [manufacturers, suppliers, products, categories]
+    default_lg:
+      width: 336
+      height: 336
+      scope: [categories, products]
+    default_xl:
+      width: 400
+      height: 400
+      scope: [products]
+    product_main:
+      width: 720
+      height: 720
+      scope: [products]
+    category_cover:
+      width: 1000
+      height: 200
+      scope: [categories]
+    product_main_2x:
+      width: 1440
+      height: 1440
+      scope: [products]
+    category_cover_2x:
+      width: 2000
+      height: 400
+      scope: [categories]
+
+theme_settings:
+  rtl_generation: false
+  default_layout: layout-full-width
+  layouts:
+    category: layout-left-column
+    best-sales: layout-left-column
+    new-products: layout-left-column
+    prices-drop: layout-left-column
+    contact: layout-left-column
+    manufacturer: layout-left-column
+    supplier: layout-left-column

@@ -1,0 +1,19 @@
+// Define CSS layers order to allow easy customization (same as parent)
+@layer vendors, bs-base, bs-components, bs-custom-components, ps-base, ps-components, ps-pages, ps-modules, utilities;
+
+/* stylelint-disable */
+
+// 1. Child variables FIRST — Sass overrides for everything the parent
+//    leaves !default (Bootstrap + Hummingbird).
+@import "child/variables";
+
+// 2. Parent Hummingbird sources, resolved via the @parent-scss alias
+//    (webpack.config.js). Same structure as the parent's own theme.scss.
+@import "@parent-scss/abstract/index";
+@import "@parent-scss/vendors/index";
+@import "@parent-scss/prestashop/index";
+
+// 3. Child styles LAST — highest priority.
+@import "child/child";
+
+/* stylelint-enable */

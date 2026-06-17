@@ -1,0 +1,38 @@
+{
+  "name": "hummingbird-child",
+  "version": "1.0.0",
+  "description": "Minimal Hummingbird child theme starter for PrestaShop 9 (wrapper pattern)",
+  "engines": {
+    "node": ">= 20"
+  },
+  "scripts": {
+    "build": "webpack --progress --mode=production",
+    "watch": "webpack --progress --watch --mode=development"
+  },
+  "author": "Nico H",
+  "license": "AFL-3.0",
+  "devDependencies": {
+    "@types/bootstrap": "^5.2.10",
+    "autoprefixer": "^10.4.20",
+    "css-loader": "^7.1.2",
+    "esbuild-loader": "^4.3.0",
+    "mini-css-extract-plugin": "^2.9.1",
+    "postcss": "^8.4.47",
+    "postcss-loader": "^8.1.1",
+    "sass": "^1.89.0",
+    "sass-loader": "^16.0.2",
+    "typescript": "~5.5.4",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.1.0",
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "5.3.3",
+    "events": "^3.3.0",
+    "material-design-icons-iconfont": "^6.7.0",
+    "nouislider": "^15.8.1",
+    "sprintf-js": "^1.1.3",
+    "wnumb": "^1.2.0"
+  }
+}

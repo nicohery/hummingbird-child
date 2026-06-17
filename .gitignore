@@ -1,0 +1,6 @@
+node_modules/
+*.log
+.DS_Store
+.idea/
+assets/cache/
+assets/**/*.map

@@ -1,0 +1,16 @@
+// Hummingbird Child — design tokens & compile-time Sass overrides.
+//
+// Loaded BEFORE the parent sources: only lands on variables the parent
+// (Hummingbird/Bootstrap) declares with !default. Hummingbird hard-sets
+// some of them ($primary, $border-radius, $btn-border-radius,
+// $font-family-base… — no !default): those must be overridden at runtime
+// via CSS custom properties in child.scss.
+
+// Child brand tokens
+$child-primary: #0e7490; // teal — visibly different from Hummingbird blue
+$child-ink:     #1e293b;
+
+// --- Example compile-time override ---
+// Bootstrap declares $body-bg with !default and Hummingbird leaves it
+// untouched: the whole site background compiles to this value.
+$body-bg: #f6f8fa;
