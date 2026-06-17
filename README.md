@@ -28,7 +28,7 @@ No `custom.css`, no `custom.js`: every override is compiled into the main bundle
 
 ## 🧬 How it works
 
-The whole theme fits in **13 source files**:
+The whole theme fits in **a handful of source files**:
 
 ```
 config/theme.yml                 Theme declaration, parent, disabled modules
